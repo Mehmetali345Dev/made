@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center w-full">
       <nuxt-link
         to="/"
-        class="text-3xl font-bold hover:text-gray-500 transition-all ease-in-out duration-300"
+        class="text-3xl font-bold hover:text-blue-500 transition-all ease-in-out duration-300"
       >
         MADE
       </nuxt-link>
@@ -12,7 +12,7 @@
           v-for="(link, index) in links"
           :key="index"
           :to="link.url"
-          class="hover:text-gray-500 transition-all ease-in-out duration-300"
+          class="hover:text-blue-500 transition-all ease-in-out duration-300"
           >{{ link.name }}</nuxt-link
         >
         <Color />
