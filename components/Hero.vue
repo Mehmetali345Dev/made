@@ -38,7 +38,7 @@
       </p>
     </div>
     <div
-      class="flex mt-2"
+      class="flex mt-2 gap-3"
       v-motion
       :initial="{
         opacity: 0,
@@ -56,9 +56,15 @@
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/mehmetali345dev/made"
-        class="px-6 flex gap-3 py-2 dark:bg-gray-50 dark:text-black text-white rounded-md bg-dark-800"
+        class="px-6 flex gap-3 py-2 dark:bg-gray-50 items-center dark:text-black text-white rounded-md bg-dark-800"
       >
         <Icon name="github" class="w-6 h-6" />View on Github</a
+      >
+      <nuxt-link
+        to="/faq"
+        class="px-6 flex gap-3 py-2 bg-blue-600 text-white items-center rounded-md"
+      >
+        <Icon name="question" class="w-6 h-6" />FAQ</nuxt-link
       >
     </div>
   </div>
