@@ -37,7 +37,7 @@ export default {
           url: '/wms',
         },
         {
-          name: 'Mini Wiki',
+          name: 'Wiki',
           url: '/wiki',
         },
       ],

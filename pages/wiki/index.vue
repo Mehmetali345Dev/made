@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full flex-col">
-    <h1 class="font-bold text-blue-600 text-2xl">Hi, welcome to Mini Wiki!</h1>
+    <h1 class="font-bold text-blue-600 text-2xl">Hi, welcome to Wiki!</h1>
     <p class="font-bold">
       The purpose of this mini wiki is to explain what DE and WM are, to
       introduce them.
