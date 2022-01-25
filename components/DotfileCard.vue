@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link to="/" class="flex flex-col w-full rounded-t-md dark:bg-dark-700">
+  <nuxt-link
+    to="/faq"
+    class="flex flex-col w-full rounded-t-md transition-all ease-in-out duration-300 hover:(dark:bg-dark-700 bg-gray-300)"
+  >
     <img :src="dotfile.screenshots[0]" class="w-full rounded-t-md" alt="" />
     <div class="flex flex-col p-4 gap-1 justify-center">
       <h1 class="font-bold text-lg">{{ dotfile.title }}</h1>
