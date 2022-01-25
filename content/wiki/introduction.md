@@ -1,11 +1,14 @@
 ---
-title: Hmmmm
+title: Hmmmm2
 desc: 'An awesome desktop with i3 and polybar!'
 username: 'Mehmetali345Dev'
 wm: "i3-gaps"
 screenshots:
-  - https://p
+  - https://picsum.photos/2000/1000
+  - https://picsum.photos/2000/1000
+  - https://picsum.photos/2000/1000
 date: 24-01-2022
+category: 'Getting started'
 ---
 
 Empower your NuxtJS application with `@nuxtjs/content` module: write in a `content/` directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a **Git-based Headless CMS**.

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full">
-    <h1 class="text-2xl font-bold">Frequently Asked Questions</h1>
+    <h1 class="text-2xl text-blue-600 font-bold">Frequently Asked Questions</h1>
     <div class="grid md:grid-cols-2 gap-3 mt-2">
       <QuestionCard
         v-for="(question, index) in questions"
@@ -30,7 +30,7 @@ export default {
           a: 'Yes, you can find it on Github.',
         },
         {
-          q: 'How do I contribute?',
+          q: 'How I can contribute?',
           a: 'You can find contribute guidlines on Github.',
         },
         {

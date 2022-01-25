@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gradient-to-r from-blue-600 to-green-600 rounded-md shadow-md shadow-gray-600 p-4 flex flex-col gap-3"
+    class="bg-gradient-to-r text-white from-blue-600 to-green-600 rounded-md shadow-md shadow-gray-600 p-4 flex flex-col gap-3"
   >
     <h1 class="text-xl font-bold">Question: "{{ question.q }}"</h1>
     <p class="text-lg">Answer: "{{ question.a }}"</p>
