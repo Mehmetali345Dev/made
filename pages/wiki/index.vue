@@ -7,12 +7,12 @@
     </p>
     <h2 class="mt-2 font-bold text-xl">All documents with categories</h2>
 
-    <div class="mt-2" v-for="(category, index) in documents" :key="index">
+    <div v-for="(category, index) in documents" :key="index" class="mt-2">
       <h1 class="text-lg font-bold text-blue-600">{{ index }}</h1>
       <div class="grid md:grid-cols-3 gap-3 w-full">
         <CategoryCard
-          v-for="(document, index) in category"
-          :key="`document-${category}-${index}}`"
+          v-for="document in category"
+          :key="`document-${category}-${document.position}`"
           :document="document"
         />
       </div>

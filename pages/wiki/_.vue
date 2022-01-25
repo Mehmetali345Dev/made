@@ -1,14 +1,13 @@
 <template>
-  <div>{{ wut }}</div>
+  <div>{{ document }}</div>
 </template>
 
 <script>
 export default {
-  name: 'WikiIndex',
-  middleware({ app, params, redirect }) {
-    console.log(params.pathMatch);
-    if (params.pathMatch === '/') {
-      redirect(app.localePath('/wiki/'))
+  name: 'WikiSlug',
+  data() {
+    return {
+      document: [],
     }
   },
   async fetch() {
@@ -16,12 +15,7 @@ export default {
     const [document] = await this.$content({ deep: true })
       .where({ path })
       .fetch()
-    this.wut = document
-  },
-  data() {
-    return {
-      wut: [],
-    }
+    this.document = document
   },
 }
 </script>

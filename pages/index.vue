@@ -26,8 +26,8 @@
       </div>
       <button
         v-if="dotfiles.length >= number"
-        @click="loadMore()"
         class="text-xl font-bold justify-center items-center w-full bg-transparent mt-4 flex gap-3"
+        @click="loadMore()"
       >
         <Icon name="arrow-down" class="animate-bounce w-6 h-6" />Load More
       </button>
