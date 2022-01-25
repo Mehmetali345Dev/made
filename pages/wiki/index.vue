@@ -29,6 +29,7 @@ export default {
       documents: [],
     }
   },
+  fetchOnServer: false,
   async fetch() {
     const documents = await this.$content('wiki', { deep: true })
       .sortBy('position', 'asc')

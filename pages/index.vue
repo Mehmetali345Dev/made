@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col items-center w-full">
     <Hero class="w-full" />
+    <div v-if="$fetchState.pending">Fetching...</div>
+    <div v-else-if="$fetchState.error">An error occured</div>
     <div
+      v-else
       v-motion
       :initial="{
         opacity: 0,

@@ -1,8 +1,6 @@
 <template>
-  <div class="flex gap-2 flex-col md:justify-center w-full">
-    <div
-      class="p-4 flex rounded-md w-max flex-col gap-2 "
-    >
+  <div class="flex gap-2 flex-col md:justify-center">
+    <div class="p-4 flex rounded-md flex-col gap-2">
       <h1 class="text-2xl font-bold">{{ error.statusCode }}</h1>
       <h1 class="text-lg font-bold">{{ getErrorMeta.title }}</h1>
       <p>{{ getErrorMeta.description }}</p>
