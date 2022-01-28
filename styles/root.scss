@@ -1,3 +1,5 @@
+@import 'transitions';
+
 html {
   font-family: 'JetBrains Mono', monospace;
 }
@@ -10,7 +12,7 @@ html {
   }
 }
 
-.scale-up{
+.scale-up {
   @apply hover:scale-103 transform ease-in transition-all duration-200;
 }
 
