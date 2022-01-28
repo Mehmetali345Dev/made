@@ -1,19 +1,13 @@
 <template>
-  <div class="flex w-full flex-col">
-    <h1 class="font-bold text-blue-600 text-2xl">Hi, welcome to Wiki!</h1>
-    <p class="font-bold">
-      The purpose of this mini wiki is to explain what DE and WM are, to
-      introduce them.
-    </p>
-    <h2 class="mt-2 font-bold text-xl">All documents with categories</h2>
-
-    <div v-for="(category, index) in documents" :key="index" class="mt-2">
+  <div class="flex flex-col space-y-3">
+    <div v-for="(category, index) in documents" :key="index">
       <h1 class="text-lg font-bold text-blue-600">{{ index }}</h1>
-      <div class="grid md:grid-cols-3 gap-3 w-full">
-        <CategoryCard
+      <div class="grid gap-1 w-full">
+        <CategoryCardText
           v-for="document in category"
           :key="`document-${category}-${document.position}`"
           :document="document"
+          class="w-full"
         />
       </div>
     </div>
@@ -22,8 +16,9 @@
 
 <script>
 import groupBy from 'lodash.groupby'
+
 export default {
-  name: 'WikiIndex',
+  name: 'WikiExplorer',
   data() {
     return {
       documents: [],

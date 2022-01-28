@@ -3,8 +3,15 @@
     class="flex transition-all flex-col items-center dark:bg-dark-900 text-black dark:text-white bg-gray-100 min-h-screen"
   >
     <Navbar />
-    <div class="flex-grow flex justify-center w-11/12 md:py-8 md:px-16 p-4">
-      <Nuxt class="w-11/12 flex-grow" />
+    <WikiExplorer class="md:hidden" />
+    <div
+      class="flex-grow flex justify-center items-start w-11/12 gap-3 md:py-8 md:px-16 p-4"
+    >
+      <WikiExplorer
+        v-if="$route.params.pathMatch"
+        class="hidden md:block w-48"
+      />
+      <Nuxt class="w-11/12" />
     </div>
   </div>
 </template>
