@@ -50,7 +50,7 @@ export default {
   fetchOnServer: false,
   async fetch() {
     const dotfiles = await this.$content('dotfiles')
-      .sortBy('date', 'desc')
+      .sortBy('createdAt', 'desc')
       .limit(this.number)
       .without(['body'])
       .fetch()

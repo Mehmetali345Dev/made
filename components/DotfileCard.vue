@@ -17,12 +17,15 @@
       <h2 class="font-bold">
         WM/DE: <span class="text-blue-600">{{ dotfile.wm }}</span>
       </h2>
-      <h2 class="font-bold">
-        Date: <span class="text-blue-600">{{ dotfile.date }}</span>
-      </h2>
-      <h3 class="font-bold">
-        Author: <span class="text-blue-600">{{ dotfile.username }}</span>
-      </h3>
+      <div class="flex gap-1">
+        <Icon name="user-circle" class="w-5 h-5" />{{ dotfile.username }}
+      </div>
+      <div class="flex gap-1 items-center">
+        <Icon name="calendar" class="w-5 h-5" />{{ getCreateDate }}
+      </div>
+      <div class="flex gap-1">
+        <Icon name="clock-clockwise" class="w-5 h-5" />{{ getUpdateDate }}
+      </div>
     </div>
   </nuxt-link>
 </template>
@@ -43,6 +46,28 @@ export default {
       } else {
         return ''
       }
+    },
+    getCreateDate() {
+      const now = this.$moment()
+      const createdAt = this.$moment(this.dotfile.createdAt)
+      const diff = now.diff(createdAt, 'days')
+      if (diff === 0) return 'Today'
+      else if (diff === 1) return 'Yesterday'
+      else if (diff <= 30) return `${diff} days ago`
+      else if (diff >= 30 && diff <= 90)
+        return `${Math.floor(diff / 30)} month(s) ago`
+      else return createdAt.format('DD/MM/YYYY')
+    },
+    getUpdateDate() {
+      const now = this.$moment()
+      const updatedAt = this.$moment(this.dotfile.updatedAt)
+      const diff = now.diff(updatedAt, 'days')
+      if (diff === 0) return 'Today'
+      else if (diff === 1) return 'Yesterday'
+      else if (diff <= 30) return `${diff} days ago`
+      else if (diff >= 30 && diff <= 90)
+        return `${Math.floor(diff / 30)} month(s) ago`
+      else return updatedAt.format('DD/MM/YYYY')
     },
   },
 }

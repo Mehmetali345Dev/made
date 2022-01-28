@@ -13,7 +13,7 @@
       />
       <h1 class="text-2xl font-bold text-blue-600">{{ document.title }}</h1>
       <p>{{ document.desc }}</p>
-      <div class="font-bold text-sm md:flex grid grid-cols-2 gap-3">
+      <div class="font-bold items-center text-sm md:flex grid grid-cols-2 gap-3">
         <div class="flex gap-1">
           <Icon name="user-circle" class="w-5 h-5" />{{ document.username }}
         </div>
@@ -23,6 +23,14 @@
         <div class="flex gap-1">
           <Icon name="clock-clockwise" class="w-5 h-5" />{{ getUpdateDate }}
         </div>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          :href="`https://github.com/${document.slug}/dotfiles`"
+          class="px-6 flex gap-3 py-2 dark:bg-gray-50 items-center dark:text-black text-white rounded-md bg-dark-800"
+        >
+          <Icon name="github" class="w-5 h-5" />View on Github</a
+        >
       </div>
     </header>
     <article class="w-full">
