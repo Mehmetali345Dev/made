@@ -13,17 +13,20 @@
           v-for="(item, index) in wmDeList"
           :key="index"
           class="transition-all w-max hover:text-blue-600 duration-300 ease-in-out"
-          @click="reloadList(item)"
+          @click="reloadList(item.name)"
         >
           {{ item.name }}
         </button>
       </div>
-      <div class="grid mt-2 gap-3 md:grid-cols-2">
+      <div v-if="dotfiles.length > 0" class="grid mt-2 gap-3 md:grid-cols-2">
         <DotfileCard
           v-for="(dotfile, index) in dotfiles"
           :key="`dotfile-${index}`"
           :dotfile="dotfile"
         />
+      </div>
+      <div v-else class="mt-2">
+        <h1 class="font-bold text-xl">No one shared dotfile with this WM/DE</h1>
       </div>
       <button
         v-if="dotfiles.length >= number"
@@ -44,10 +47,7 @@ export default {
     return {
       dotfiles: [],
       number: 10,
-      query: {
-        name: '',
-        q: '',
-      },
+      query: '',
       wmDeList: list,
     }
   },
@@ -61,7 +61,7 @@ export default {
       this.dotfiles = dotfiles
     } else {
       const dotfiles = await this.$content('dotfiles')
-        .where({ wm: this.query.q })
+        .where({ wm: this.query })
         .sortBy('createdAt', 'desc')
         .limit(this.number)
         .without(['body'])
@@ -74,7 +74,7 @@ export default {
       if (this.query.length === 0) {
         return 'None'
       } else {
-        return this.query.name
+        return this.query
       }
     },
   },
@@ -84,8 +84,7 @@ export default {
       this.$fetch()
     },
     reloadList(query) {
-      this.query.q = query.query
-      this.query.name = query.name
+      this.query = query
       this.$fetch()
     },
   },

@@ -1,34 +1,26 @@
 [
   {
-    "name": "i3-gaps",
-    "query": "i3-gaps"
+    "name": "i3-gaps"
   },
   {
-    "name": "bspwm",
-    "query": "bspwm"
+    "name": "bspwm"
   },
   {
-    "name": "awesome",
-    "query": "awesome"
+    "name": "awesome"
   },
   {
-    "name": "qtile",
-    "query": "qtile"
+    "name": "qtile"
   },
   {
-    "name": "dwm",
-    "query": "dwm"
+    "name": "dwm"
   },
   {
-    "name": "xmonad",
-    "query": "xmonad"
+    "name": "xmonad"
   },
   {
-    "name": "GNOME",
-    "query": "gnome"
+    "name": "GNOME"
   },
   {
-    "name": "KDE",
-    "query": "kde"
+    "name": "KDE"
   }
 ]

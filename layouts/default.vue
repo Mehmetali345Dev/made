@@ -7,11 +7,13 @@
     <div
       class="flex-grow flex justify-center items-start w-11/12 gap-3 md:py-8 md:px-16 p-4"
     >
-      <WikiExplorer
-        v-if="$route.params.pathMatch"
-        class="hidden md:block min-w-48"
-      />
-      <Nuxt class="w-11/12" />
+      <div class="w-11/12">
+        <WikiExplorer
+          v-if="$route.params.pathMatch"
+          class="hidden md:block min-w-48"
+        />
+        <Nuxt />
+      </div>
     </div>
   </div>
 </template>
