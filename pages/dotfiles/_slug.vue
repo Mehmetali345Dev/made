@@ -7,6 +7,7 @@
     <header class="space-y-3">
       <nuxt-link class="text-blue-600 font-bold" to="/">Go Home</nuxt-link>
       <Skeleton
+        v-if="document.screenshots.length > 0"
         type="image"
         :image-url="document.screenshots[0]"
         class="rounded-t-md"
@@ -65,7 +66,10 @@ export default {
     }
   },
   async fetch() {
-    const post = await this.$content("dotfiles", this.$route.params.slug).fetch()
+    const post = await this.$content(
+      'dotfiles',
+      this.$route.params.slug
+    ).fetch()
     this.document = post
   },
   computed: {

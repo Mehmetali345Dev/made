@@ -9,7 +9,7 @@
     >
       <WikiExplorer
         v-if="$route.params.pathMatch"
-        class="hidden md:block w-48"
+        class="hidden md:block min-w-48"
       />
       <Nuxt class="w-11/12" />
     </div>

@@ -16,6 +16,30 @@
     <article class="w-full">
       <nuxt-content :document="document" />
     </article>
+    <div class="flex w-full justify-between">
+      <nuxt-link
+        v-if="prev !== null"
+        class="p-4 bg-gray-400 rounded-md w-max dark:bg-dark-700"
+        :to="prev.path"
+      >
+        <h1
+          class="font-bold line-clamp-1 transition-all ease-in-out hover:text-blue-600 duration-300"
+        >
+          Prev: {{ prev.title }}
+        </h1>
+      </nuxt-link>
+      <nuxt-link
+        v-if="next !== null"
+        class="p-4 bg-gray-400 rounded-md w-max dark:bg-dark-700"
+        :to="next.path"
+      >
+        <h1
+          class="font-bold transition-all line-clamp-1 ease-in-out hover:text-blue-600 duration-300"
+        >
+          Next: {{ next.title }}
+        </h1>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -25,14 +49,24 @@ export default {
   data() {
     return {
       document: [],
+      prev: null,
+      next: null,
     }
   },
   async fetch() {
-    const path = `/wiki/${this.$route.params.pathMatch || 'index'}`
+    const path = `/wiki/${this.$route.params.pathMatch}`
     const [document] = await this.$content({ deep: true })
       .where({ path })
       .fetch()
     this.document = document
+
+    const [prev, next] = await this.$content('wiki', { deep: true })
+      .only(['title', 'path', 'to'])
+      .sortBy('position', 'asc')
+      .surround(document.path, { before: 1, after: 1 })
+      .fetch()
+    this.next = next
+    this.prev = prev
   },
   computed: {
     getCreateDate() {

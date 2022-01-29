@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="{
-      name: 'dotfile-slug',
+      name: 'dotfiles-slug',
       params: { slug: dotfile.slug },
     }"
     class="flex flex-col w-full justify-between rounded-t-md transition-all ease-in-out duration-300 hover:(dark:bg-dark-700 bg-gray-300)"
