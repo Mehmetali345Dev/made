@@ -55,7 +55,7 @@ html {
 
   /** Apply style for codeblocks */
   .nuxt-content-highlight {
-    @apply my-2 relative;
+    @apply my-2 relative w-full;
     .filename {
       @apply font-light mt-3 mr-3 text-sm right-0 text-gray-300 z-10 absolute;
     }
