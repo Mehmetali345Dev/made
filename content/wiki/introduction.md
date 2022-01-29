@@ -17,7 +17,6 @@ This wiki is a work in progress!
 The content is organized in categories. I plan to add more categories in the future. But for now, you can find the following categories:
 
 - Getting Started (Introduction to ricing and dotfiles)
-- Window Managers
 - Dotman (A dotfile manager)
 
 A lot of content is still missing. I will add more content in the future. Like the:
