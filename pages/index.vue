@@ -47,7 +47,6 @@ export default {
       number: 10,
     }
   },
-  fetchOnServer: false,
   async fetch() {
     const dotfiles = await this.$content('dotfiles')
       .sortBy('createdAt', 'desc')

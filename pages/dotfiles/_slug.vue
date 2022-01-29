@@ -13,7 +13,9 @@
       />
       <h1 class="text-2xl font-bold text-blue-600">{{ document.title }}</h1>
       <p>{{ document.desc }}</p>
-      <div class="font-bold items-center text-sm md:flex grid grid-cols-2 gap-3">
+      <div
+        class="font-bold items-center text-sm md:flex grid grid-cols-2 gap-3"
+      >
         <div class="flex gap-1">
           <Icon name="user-circle" class="w-5 h-5" />{{ document.username }}
         </div>
@@ -63,8 +65,7 @@ export default {
     }
   },
   async fetch() {
-    const path = `/dotfiles/${this.$route.params.slug}`
-    const post = await this.$content(path, { deep: true }).fetch()
+    const post = await this.$content("dotfiles", this.$route.params.slug).fetch()
     this.document = post
   },
   computed: {

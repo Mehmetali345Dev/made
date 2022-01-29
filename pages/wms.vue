@@ -51,7 +51,6 @@ export default {
       wmDeList: list,
     }
   },
-  fetchOnServer: false,
   async fetch() {
     if (this.query.length === 0) {
       const dotfiles = await this.$content('dotfiles')
