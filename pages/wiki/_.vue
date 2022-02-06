@@ -18,26 +18,28 @@
     </article>
     <div class="flex w-full justify-between">
       <nuxt-link
-        v-if="prev !== null"
+        v-if="other.prev !== null"
         class="p-4 bg-gray-400 rounded-md w-max dark:bg-dark-700"
-        :to="prev.path"
+        :to="other.prev.path"
       >
         <h1
           class="font-bold line-clamp-1 transition-all ease-in-out hover:text-blue-600 duration-300"
         >
-          Prev: {{ prev.title }}
+          Prev: {{ other.prev.title }}
         </h1>
+        <p>{{ other.prev.category }}</p>
       </nuxt-link>
       <nuxt-link
-        v-if="next !== null"
+        v-if="other.next !== null"
         class="p-4 bg-gray-400 rounded-md w-max dark:bg-dark-700"
-        :to="next.path"
+        :to="other.next.path"
       >
         <h1
           class="font-bold transition-all line-clamp-1 ease-in-out hover:text-blue-600 duration-300"
         >
-          Next: {{ next.title }}
+          Next: {{ other.next.title }}
         </h1>
+        <p>{{ other.next.category }}</p>
       </nuxt-link>
     </div>
   </div>
@@ -49,24 +51,33 @@ export default {
   data() {
     return {
       document: [],
-      prev: null,
-      next: null,
+      other: {
+        prev: null,
+        next: null,
+      },
     }
   },
   async fetch() {
-    const path = `/wiki/${this.$route.params.pathMatch}`
-    const [document] = await this.$content({ deep: true })
+    const path = `/wiki/${this.$route.params.pathMatch}` || 'index'
+
+    const [document] = await this.$content('wiki', { deep: true })
       .where({ path })
       .fetch()
+
+    console.log(document.path)
     this.document = document
 
     const [prev, next] = await this.$content('wiki', { deep: true })
-      .only(['title', 'path', 'to'])
+      .only(['category', 'title', 'path', 'to'])
       .sortBy('position', 'asc')
-      .surround(document.path, { before: 1, after: 1 })
+      .where({ category: document.category })
+      .surround(document.path)
       .fetch()
-    this.next = next
-    this.prev = prev
+
+    this.other = {
+      prev: prev || null,
+      next: next || null,
+    }
   },
   computed: {
     getCreateDate() {
