@@ -63,8 +63,6 @@ export default {
     const [document] = await this.$content('wiki', { deep: true })
       .where({ path })
       .fetch()
-
-    console.log(document.path)
     this.document = document
 
     const [prev, next] = await this.$content('wiki', { deep: true })
