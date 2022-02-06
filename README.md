@@ -42,3 +42,5 @@ $ yarn generate
 Everyone contribution is welcome! Just fork repo make your changes and open pull request to me.
 
 This project is licensed under the Don't Be Dick license.
+
+MADE is acronym of Mehmet's Awesome Dotfiles Explorer.
